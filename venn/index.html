@@ -1,0 +1,243 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./venncss.css">
+		<script src="./venn.js"></script>
+		
+		<!-- JQuery and Bootstrap -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+		<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="bootstrap-3.3.5-dist/js/ie10-viewport-bug-workaround.js"></script> 
+    </head>
+    <body id="pageBody">
+	
+		<!-- legend -->
+		<div id="legendContainer">
+			<table id="ledgendTable" cellpadding="10">
+				<tr class="ledgendTableRow">
+					<td class="ledgendTableCell">
+						<div class="cellColourContainer" id="tableLedgendCell1"></div>
+					</td>
+					<td id="tableCellText1">Women who have cancer</td>
+				</tr>
+				<tr class="ledgendTableRow">
+					<td class="ledgendTableCell">
+						<div class="cellColourContainer" id="tableLedgendCell2"></div>
+					</td>
+					<td id="tableCellText2">Women who tested positive</td>
+				</tr>
+			</table>
+		</div>
+	
+		<!-- buttons -->
+		<div id="vennButtons">
+			<div class="btn-group">
+				<a id="interVenn" href="#" class="btn btn-primary" onclick="venn.drawInteractiveVenn();">Interactive venn</a>
+				<a id="treeView" href="#" class="btn btn-primary" onclick="venn.drawTree();">Tree view</a>
+				<a id="originVenn" href="#" class="btn btn-primary" onclick="venn.drawOriginalVenn();">Original venn</a>
+				<a id="gridVenn" href="#" class="btn btn-primary" onclick="venn.drawGridVenn();">Grid veiw</a>
+			</div>
+		</div>
+		
+		<div id="outerNumber">1000</div>
+        <div id="vennBackground">
+			<div id="innerNumber">0</div>
+        </div>
+		<div id="widgetContainer">
+			<table id="widgetTable">
+				<tr>
+					<!-- yellow circle -->
+					<td class="widgetTableCell widgetTableCellLeft">
+						<span class="yellowText">Yellow</span> circle area
+					</td>
+					<td class="widgetTableCell widgetTableCellCenter">
+					</td>
+					<td class="widgetTableCell widgetTableCellRight">
+						<label id="yellowAreaOutput">0</label>
+					</td>
+				</tr>
+				<tr>
+					<!-- red circle -->
+					<td class="widgetTableCell widgetTableCellLeft">
+						<span class="redText">Red</span> circle area
+					</td>
+					<td class="widgetTableCell widgetTableCellCenter">
+					</td>
+					<td class="widgetTableCell widgetTableCellRight">
+						<label id="redAreaOutput">0</label>
+					</td>
+				</tr>
+				<tr>
+					<!-- overlap area -->
+					<td class="widgetTableCell widgetTableCellLeft">
+						Overalap
+					</td>
+					<td class="widgetTableCell widgetTableCellCenter">
+						P(<label id="overlapOutput">0</label>)
+					</td>
+					<td class="widgetTableCell widgetTableCellRight">
+						<label id="overlapOutputPx">0</label>px
+					</td>
+				</tr>
+				<tr>
+					<td class="widgetTableCell widgetTableCellLeft">
+						Overalap (percentage)
+					</td>
+					<td class="widgetTableCell widgetTableCellCenter">
+					</td>	
+					<td class="widgetTableCell widgetTableCellRight">
+						<label id="overlapOutput2">0</label>
+					</td>					
+				</tr>
+				<tr>
+					<!-- circle distance -->
+					<td class="widgetTableCell widgetTableCellLeft">
+						Circle distance
+					</td>
+					<td class="widgetTableCell">
+						<!-- slider --> 
+						<input id="circleDist" class="widgetTableCellCenter" type="range" min="0" max="240000" step="0.1" onchange="venn.slide(this);"> 
+					</td>
+					<td class="widgetTableCell widgetTableCellRight">
+						<input id="circle_dist_text" class="widgetTextBox" type="text" onchange="venn.updateCircleDistance();">
+					</td>
+				</tr>
+				<tr>
+					<td class="widgetTableCell widgetTableCellLeft">
+						P(C=1) = 
+					</td>
+					<td class="widgetTableCell widgetTableCellCenter">
+						<input type="text" id="probInput1" onchange="venn.updateText(this, 'yellowAreaOutput');">	
+					</td>
+					<td class="widgetTableCell widgetTableCellRight">
+					</td>
+				<tr>
+				<tr>
+					<td class="widgetTableCell widgetTableCellLeft">
+						P(T=1|C=1) = 
+					</td>
+					<td class="widgetTableCell widgetTableCellCenter">
+						<input type="text" id="prior" onchange="venn.updateText(this, 'prior');">	
+					</td>
+					<td class="widgetTableCell widgetTableCellRight">
+					
+					</td>
+				<tr>
+				<tr>
+					<td class="widgetTableCell widgetTableCellLeft">
+						P(T=1|C=0) = 
+					</td>
+					<td class="widgetTableCell widgetTableCellCenter">
+						<input type="text" id="notPrior" onchange="venn.updateText(this, 'notPrior');">	
+					</td>
+					<td class="widgetTableCell widgetTableCellRight">
+					
+					</td>
+				<tr>
+				<tr>
+					<td class="widgetTableCell widgetTableCellLeft">
+						P(C=0) = 
+					</td>
+					<td class="widgetTableCell widgetTableCellCenter">
+						<label id="probOutput1">0</label>	
+					</td>
+					<td class="widgetTableCell widgetTableCellRight">
+						<a id="centreButton" href="#" class="btn btn-primary" onclick="venn.center();">Centre</a>
+					</td>
+				<tr>
+				<tr>
+					<td class="widgetTableCell widgetTableCellLeft">
+						P(C=1|T=1) = 
+					</td>
+					<td class="widgetTableCell widgetTableCellCenter">
+						<label id="posterior">0</label>	
+					</td>
+					<td class="widgetTableCell widgetTableCellRight">
+						<a id="resetButton" href="#" class="btn btn-danger" onclick="venn.reset();">Reset</a>
+					</td>
+				<tr>
+			</table>
+		</div>
+		
+		<!-- Input error modal -->
+		<div id="inputErrorModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Invalid input content-->
+				<div class="modal-content">
+					<div class="modal-header popupHeaderStyle">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">ERROR</h4>
+					</div>
+					<div class="modal-body">
+						<p>Invalid input</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Edit outer nuber  modal -->
+		<div id="editOuterNumModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- edit content-->
+				<div class="modal-content">
+					<div class="modal-header popupHeaderStyleInput">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">CHANGE POPULATION NUMBER</h4>
+					</div>
+					<div class="modal-body">
+						<label for="editBox">Enter new value:</label>
+						<input type="number" class="form-control" id="editBox" min="1">
+						<button type="submit" class="btn btn-default" onclick="venn.editOuterNumber();">Apply</button>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+        <script type="text/javascript">
+            
+			$(document).on('input', '[type="range"]',
+				function(){
+					venn.slide(this, this.id);
+				});
+			
+			// create circle args
+			var circleArgs = new Object();
+			circleArgs.circles = new Array();
+			circleArgs.circles["yellow"] = 
+			{ 
+				canvasId : "yellowCircle", 
+				x : 230, 
+				y : 250,
+				color : "yellow",
+				area : 1 
+			};
+			circleArgs.circles["red"] = 
+			{ 
+				canvasId : "redCircle", 
+				x : 460, 
+				y : 250,
+				color : "red",
+				area : 10.3 
+			};
+			
+			// create venn object
+			var venn = createVenn(circleArgs);
+			venn.initialize();
+		
+			// draw circles
+			venn.drawCircle(230, 250, "yellow", 1, "yellowCircle");
+			venn.drawCircle(460, 250, "red", 10.3, "redCircle");
+			venn.setInitialCircleDistance();
+				
+        </script>
+    </body>
+</html>

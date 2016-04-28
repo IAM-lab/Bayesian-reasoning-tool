@@ -1,0 +1,391 @@
+#vennBackground
+{
+	position:absolute;
+	width:700px; /* 700 */
+	height:500px; /* 500 */
+	top:10%;
+	left:10%;
+	background-color: lightblue;
+}
+
+#widgetContainer
+{
+	position:absolute;
+	width:300px;
+	height:400px;
+	background-color:#EBEBEB;
+	border: 1px solid black;
+}
+
+#outerNumber
+{
+	position:absolute;
+	color:black;
+	font-size:250%;
+}
+
+#innerNumber, #originalInnerNumber
+{
+	position:absolute;
+	bottom:1%;
+	left:2%;
+	color:black;
+	font-size:200%;
+}
+
+#widgetTable
+{
+	width:100%;
+}
+
+.widgetTableCell
+{
+	padding-top:2%;
+}
+
+.widgetTableCellLeft
+{
+	text-align:right;
+	width:40%;
+	padding-right:1%;
+}
+
+.widgetTableCellCenter
+{
+	width:40%;
+	padding-left:1%;
+	padding-right:1%;
+}
+
+.widgetTableCellRight
+{
+	width:20%;
+}
+
+.widgetTextBox
+{
+	width:70%;
+	margin-left:5%;
+}
+
+.redText
+{
+	color:#A85989;
+}
+
+.yellowText
+{
+	color:#D2BA67;
+}
+
+#vennButtons
+{
+	position:absolute;
+	top:1%;
+	width:60%;
+	height:7%;
+}
+
+.popupHeaderStyle
+{
+	background-color:red;
+	color:white;
+	text-align:center;
+}
+
+.popupHeaderStyleInput
+{
+		background-color:green;
+		color:white;
+		text-align:center;
+}
+
+.gridCellClass
+{
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+#treeWindow
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-color: white;
+	outline-style:solid;
+	outline-color:black;
+}
+
+#gridWindow
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:800px;
+	height:500px;
+	background-color: white;
+	/*
+	outline-style:solid;
+	outline-color:black;*/
+}
+
+#originalVennWindow
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-color: white;
+	outline-style:solid;
+	outline-color:black;
+}
+
+#treeNodes
+{
+	top:5%;
+	left:20%;
+	position:absolute;
+	width:60%;
+	height:90%;
+	background-repeat:no-repeat;
+	background-size:contain;
+	background-position:50% 50%;
+	background-image:url('./images/treelines.png');
+}
+
+#originalVennImage
+{
+	top:5%;
+	left:10%;
+	position:absolute;
+	width:80%;
+	height:90%;
+	background-repeat:no-repeat;
+	background-size:contain;
+	background-position:50% 50%;
+	background-image:url('./images/vennFalse.png');	
+}
+
+.treeTextNode, .treeTextLabelNode
+{
+	position:absolute;
+	width:40%;
+	height:7%;
+	font-size:200%;
+	text-align:left;
+}
+
+.treeTextLabelNode
+{
+	font-size:150%;
+	/*width:20%;*/
+}
+
+.origionalVennTextNode
+{
+	position:absolute;
+	width:12%;
+	height:7%;
+	font-size:200%;
+	text-align:left;
+}
+
+#treeTextNodeId_1
+{
+	top:47%;
+	left:9.5%;
+}
+
+#treeTextNodeId_2
+{
+	top:24%;
+	left:40%;
+}
+
+#treeTextNodeId_3
+{
+	top:69%;
+	left:40%;
+}
+
+#treeTextNodeId_4
+{
+	top:8%;
+	left:69%;
+}
+
+#treeTextNodeId_5
+{
+	top:37.5%;
+	left:69%;
+}
+
+#treeTextNodeId_6
+{
+	top:54%;
+	left:69%;
+}
+
+#treeTextNodeId_7
+{
+	top:82.5%;
+	left:69%;
+}
+
+#originalVennTextNodeId_1
+{
+	top:45%;
+	left:16%;
+}
+
+#originalVennTextNodeId_2
+{
+	top:45%;
+	left:45%;
+}
+
+#originalVennTextNodeId_3
+{
+	top:45%;
+	left:72%;
+}
+
+.textLabelNodeclass
+{
+	position:absolute;
+	width:12%;
+	height:7%;
+	font-size:100%;
+	text-align:left;
+}
+
+#textLabelNode_1
+{
+	top:52%;
+	left:16%;	
+}
+
+#textLabelNode_2
+{
+	top:52%;
+	left:45%;	
+}
+
+#textLabelNode_3
+{
+	top:52%;
+	left:72%;	
+}
+
+#legendContainer
+{
+	position:absolute;
+	top:2%;
+	left:2%;
+	width:15%;
+	height:11%;
+}
+
+#legendContainerGrid
+{
+	position:absolute;
+	top:2%;
+	left:2%;
+	width:15%;
+	height:11%;
+}
+
+#treeTextLabelNodeId_1
+{
+	top:55%;
+	left:4%;
+}
+
+#treeTextLabelNodeId_2
+{
+	top:30%;
+	left:35%;
+}
+
+#treeTextLabelNodeId_3
+{
+	top:75%;
+	left:37%;
+}
+
+#treeTextLabelNodeId_4
+{
+	top:14%;
+	left:65%;
+}
+
+#treeTextLabelNodeId_5
+{
+	top:42%;
+	left:65%;
+}
+
+#treeTextLabelNodeId_6
+{
+	top:59%;
+	left:65%;
+}
+
+#treeTextLabelNodeId_7
+{
+	top:88%;
+	left:65%;
+}
+
+#ledgendTable
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+.ledgendTableRow
+{
+	width:100%;
+}
+
+.ledgendTableCell
+{
+	padding:5px;
+	width:25%;
+}
+
+#tableCellText1, #tableCellText2
+{
+	padding-left:3%;
+}
+
+.cellColourContainer
+{
+	width:100%;
+	height:100%;
+}
+
+#tableLedgendCell1
+{
+	background-color:yellow; 
+	opacity:0.5;
+	border:1px solid black;
+}
+
+#tableLedgendCell2
+{
+	background-color:#D66C73;
+	border:1px solid black;
+}
+
+#ledgendTableId
+{
+	width:100%;
+}
