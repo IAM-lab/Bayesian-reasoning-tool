@@ -450,6 +450,9 @@
 		// update ledgend 
 		var text1 = document.getElementById("tableCellText1");
 		text1.innerHTML = "Have cancer (" + (parseFloat(probInput1.value) * 10) + " women)";
+		var text3 = document.getElementById("tableCellText3");
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		text3.innerHTML = "Do not have cancer and tested negative (" + (parseFloat(Math.round((1000 - (1000 * (probInput1.value / 100))) - ((1000 - (1000 * (probInput1.value / 100))) * (notPrior.value / 100))))) + " women)";
 		
 		if((notPriorValue.length > 0) && (priorValue.length > 0) && (probInput1Value.length > 0))
 		{
@@ -726,7 +729,7 @@
 			vennNodeValues.push((probInput1 * 10) * (prior / 100));
 			vennNodeValues.push(innerNumber * (notPrior / 100));
 			
-			var labelValues = ["have cancer and tested negative", "have cancer and tested postive", "do not have cancer and tested positive"];
+			var labelValues = ["have cancer and tested negative", "have cancer and tested positive", "do not have cancer and tested positive"];
 			
 			// add text nodes
 			for(i = 0; i < 3; i++)
@@ -912,6 +915,7 @@
 		var legendContainer = document.getElementById("legendContainer");
 		var color1 = document.getElementById("tableLedgendCell1");
 		var color2 = document.getElementById("tableLedgendCell2");
+		var color3 = document.getElementById("tableLedgendCell3");
 		
 		// show legend
 		legendContainer.style.display = "block";
@@ -927,9 +931,11 @@
 				color1.style.backgroundColor = "yellow";
 				color1.style.opacity = "0.5";
 				color2.style.backgroundColor = "#D66C73";
+				color3.style.backgroundColor = "lightblue"
 				break;
 			case "original":
-				color1.style.backgroundColor = "#FFFFBF";
+				//color1.style.backgroundColor = "#FFFFBF";
+				color1.style.backgroundColor = "solid yellow";
 				color1.style.border = "4px solid yellow";
 				color2.style.backgroundColor = "#EAB4B8";
 				color2.style.border = "4px solid #D66C73";
