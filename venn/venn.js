@@ -936,7 +936,7 @@
 			case "original":
 				//color1.style.backgroundColor = "#FFFFBF";
 				color1.style.backgroundColor = "solid yellow";
-				color1.style.border = "4px solid yellow";
+				color1.style.border = "1px solid black";
 				color2.style.backgroundColor = "#EAB4B8";
 				color2.style.border = "4px solid #D66C73";
 				break;
