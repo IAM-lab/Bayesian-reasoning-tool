@@ -286,8 +286,14 @@
 	position:absolute;
 	top:2%;
 	left:2%;
-	width:15%;
-	height:11%;
+	width:18%; /* 15 */
+	height:20%; /* 11 */
+}
+
+.ledgendTableRow
+{
+	width:100%;
+	height:33%; /* added field */
 }
 
 #legendContainerGrid
@@ -350,20 +356,16 @@
 	height:100%;
 }
 
-.ledgendTableRow
-{
-	width:100%;
-}
-
 .ledgendTableCell
 {
 	padding:5px;
 	width:25%;
 }
 
-#tableCellText1, #tableCellText2
+#tableCellText1, #tableCellText2, #tableCellText3
 {
 	padding-left:3%;
+	padding-top:2%;
 }
 
 .cellColourContainer
